@@ -3,6 +3,9 @@ package com.example.chucknorrisjokesapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,5 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("liste", StaticList.list.toString())
+        val recycler: RecyclerView = findViewById(R.id.RecyclerView)
+        recycler.layoutManager=LinearLayoutManager(this)
+        //recycler.adapter=
     }
 }
