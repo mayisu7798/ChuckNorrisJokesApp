@@ -12,4 +12,5 @@ object StaticList {
         "Chuck Norris doesn't get morning wood, he gets morning Redwood!",
         "Chuck Norris has a flying pony do you know how it flys,chuck hit it"
     )
+
 }
