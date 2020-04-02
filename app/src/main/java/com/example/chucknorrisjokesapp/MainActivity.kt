@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity()
         //Log.d("liste", StaticList.list.toString())
         val recycler: RecyclerView = findViewById(R.id.RecyclerView)
         recycler.layoutManager = LinearLayoutManager(this)
-        val adapteur = JokeAdapter(StaticList)
+        val adapteur = JokeAdapter(StaticList) // Il faut que je lui donne une liste de Joke
         recycler.adapter = adapteur
     }
 }
