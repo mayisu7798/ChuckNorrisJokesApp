@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
 
-class JokeAdapter (private var listJokes : StaticList) : RecyclerView.Adapter<JokeAdapter.JokeViewHolder>()
+class JokeAdapter (private var listJokes : List<Joke>) : RecyclerView.Adapter<JokeAdapter.JokeViewHolder>()
 {
     class JokeViewHolder (var textView : TextView) : RecyclerView.ViewHolder(textView)
 
@@ -15,12 +15,12 @@ class JokeAdapter (private var listJokes : StaticList) : RecyclerView.Adapter<Jo
         return JokeViewHolder(textView)
     }
     override fun getItemCount(): Int  {
-        return listJokes.list.size
+        return listJokes.size
     }
     override fun onBindViewHolder(holder: JokeViewHolder, position: Int)  {
-       holder.textView.text = listJokes.list[position]
+       holder.textView.text = listJokes[position].toString()
     }
-    fun setJokes(listJokes : StaticList)   {
+    fun setJokes(listJokes : List<Joke>)   {
         this.listJokes = listJokes
         this.notifyDataSetChanged()
     }
