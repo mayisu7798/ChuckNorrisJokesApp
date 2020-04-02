@@ -5,11 +5,14 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.Single
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 class MainActivity : AppCompatActivity()
 {
+    private val disposable = CompositeDisposable()
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -26,7 +29,13 @@ class MainActivity : AppCompatActivity()
             onError = {println("Le Single<Joke> renvoie une erreur")},
             onSuccess = { joke -> println("Yaaay on peut utiliser la Jooooke : ${joke.value}")}
         )
+        disposable.add(resultSubscribe)
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable.clear()
     }
 
     private fun List<String>.toJokeList() : List<Joke> = map { stringJoke ->
