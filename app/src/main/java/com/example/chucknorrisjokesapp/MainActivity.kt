@@ -2,10 +2,11 @@ package com.example.chucknorrisjokesapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Transformations.map
-//import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.Single
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
 class MainActivity : AppCompatActivity()
 {
@@ -16,8 +17,16 @@ class MainActivity : AppCompatActivity()
         //Log.d("liste", StaticList.list.toString())
         val recycler: RecyclerView = findViewById(R.id.RecyclerView)
         recycler.layoutManager = LinearLayoutManager(this)
-        val adapteur = JokeAdapter(StaticList.list.toJokeList()) // Il faut que je lui donne une liste de Joke
+        val adapteur = JokeAdapter(StaticList.list.toJokeList())
         recycler.adapter = adapteur
+
+        val jokeService : JokeApiService = JokeApiServiceFactory.createJokeApiService()
+        val joke : Single<Joke> = jokeService.giveMeAJoke()
+        val resultSubscribe = joke.subscribeOn(Schedulers.io()).subscribeBy(
+            onError = {println("Le Single<Joke> renvoie une erreur")},
+            onSuccess = { joke -> println("Yaaay on peut utiliser la Jooooke : ${joke.value}")}
+        )
+
     }
 
     private fun List<String>.toJokeList() : List<Joke> = map { stringJoke ->
@@ -27,6 +36,6 @@ class MainActivity : AppCompatActivity()
                 id = "Pas d'ID",
                 updatedAt = "Paris",
                 url = "Pas d'Url",
-                value = stringJoke )
+                value = stringJoke+"\n" )
     }
 }

@@ -24,6 +24,12 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
 }
 
 
@@ -40,7 +46,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     // Serialization
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
     // Retrofit & Rx Java
     implementation "com.squareup.retrofit2:retrofit:2.8.1"
     implementation "io.reactivex.rxjava2:rxkotlin:2.3.0"

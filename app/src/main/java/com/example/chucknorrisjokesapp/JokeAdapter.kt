@@ -18,7 +18,7 @@ class JokeAdapter (private var listJokes : List<Joke>) : RecyclerView.Adapter<Jo
         return listJokes.size
     }
     override fun onBindViewHolder(holder: JokeViewHolder, position: Int)  {
-       holder.textView.text = listJokes[position].toString()
+       holder.textView.text = listJokes[position].value
     }
     fun setJokes(listJokes : List<Joke>)   {
         this.listJokes = listJokes
