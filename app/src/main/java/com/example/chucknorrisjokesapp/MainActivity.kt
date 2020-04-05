@@ -48,12 +48,11 @@ class MainActivity : AppCompatActivity()
             joke = jokeService.giveMeAJoke()
             resultSubscribe = joke.subscribeOn(Schedulers.io())
                 .delay(1, TimeUnit.SECONDS, AndroidSchedulers.mainThread())
+                .repeat(10)
                 .doOnError { println("Le Single<Joke> renvoie une erreur") }
                 .doOnSubscribe { progressBar.visibility = VISIBLE }
-                .doOnSuccess { joke ->
-                    println("Yaaay on peut utiliser la Jooooke : ${joke.value}")
-                    adapteur.setJokes(joke)
-                }
+                .doOnNext { joke -> println("Yaaay on peut utiliser la Jooooke : ${joke.value}")
+                                adapteur.setJokes(joke) }
                 .doAfterTerminate { progressBar.visibility = INVISIBLE }
                 .subscribe()
         }
