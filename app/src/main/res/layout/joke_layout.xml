@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text = ""
-    android:id = "@+id/TextViewJoke"
-    android:background="@android:color/white"
-    android:textAlignment="textStart"
-    />
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id = "@+id/Barriere"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        app:barrierDirection = "left"
+        app:constraint_referenced_ids = "ButtonFavori, ButtonPartager" />
+
+    <TextView
+        android:id="@+id/TextViewJoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:background="@android:color/white"
+        android:text=""
+        android:textAlignment="textStart"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf = "@id/Barriere"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ButtonPartager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/share"
+        app:layout_constraintEnd_toStartOf="@id/ButtonFavori"
+        app:layout_constraintStart_toEndOf="@id/TextViewJoke"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ButtonFavori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/star_vide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ButtonPartager" />
+
+
+</merge>

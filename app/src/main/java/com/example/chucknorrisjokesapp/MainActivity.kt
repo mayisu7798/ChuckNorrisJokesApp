@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewTreeObserver
+import android.widget.ImageButton
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity ()
         if (savedInstanceState != null) {
             val listeJokesString = savedInstanceState.getString("listeJokesString")
             if (listeJokesString != null) {
-                val json = Json(JsonConfiguration.Default)
+                val json = Json(JsonConfiguration.Stable)
                 val listeJokesSaved = json.parse(Joke.serializer().list, listeJokesString)
                 listeJokesSaved.forEach{Joke -> adapteur.setJokes(Joke) }
             }
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity ()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        val json = Json(JsonConfiguration.Default)
+        val json = Json(JsonConfiguration.Stable)
         val listeJokesString = json.stringify(Joke.serializer().list, listeOfJokes)
         outState.putString("listeJokesString", listeJokesString)
         super.onSaveInstanceState(outState)
