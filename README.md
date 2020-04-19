@@ -19,10 +19,15 @@ Ce projet consiste à développer une application `Android` qui affichera des bl
 * Création d'un `CustomAdapter` que l'on appelle `JokeAdapteur` et qui a pour rôle d'adapter les données (volumineuses) à la `RecyclerView`.
 * Création d'un fichier `joke_layout.xml` contenant les données à afficher (pour le moment dans un `TextView`).
 
+Vous pouvez également voir l'avancement de cette partie dans mon rapport d'avancement du 26/03/2020 dans le dossier https://github.com/mayisu7798/ChuckNorrisJokesApp/tree/master/RAPPORTS_D_AVANCEMENT
+
 ### Part 2 - Fetch jokes 
 
 * Création d'une nouvelle mise en forme pour les `Jokes` qui est désormais un format à part entière.
 * Récupération des `Jokes` sur l'`API` à l'adresse https://api.chucknorris.io/jokes/random.
+
+Vous pouvez également voir l'avancement de cette partie dans mon rapport d'avancement du 02/04/2020 dans le dossier https://github.com/mayisu7798/ChuckNorrisJokesApp/tree/master/RAPPORTS_D_AVANCEMENT
+
 
 ### Part 3 - Display jokes on screen 
 
@@ -30,8 +35,13 @@ Ce projet consiste à développer une application `Android` qui affichera des bl
 * Ajout d'une barre de chargement et d'un délais pour charger de nouvelles `Jokes` dans l'application.
 * Suppression du `Button` d'appel de nouvelles `Jokes` et chargement automatique de nouvelles `Jokes` par scroll vers le bas, lorsque l'on atteint la fin de la liste.
 
+Vous pouvez également voir l'avancement de cette partie dans mon rapport d'avancement du 05/04/2020 dans le dossier https://github.com/mayisu7798/ChuckNorrisJokesApp/tree/master/RAPPORTS_D_AVANCEMENT
+
+
 ### Part 4 - Make UI great again 
 
 * Gestion de la rotation par enregistrement des `Jokes` déjà chargées.
 * Ajout d'un `Button` partager (présent dans l'application mais non fonctionnel)
 * Ajout d'un `Button` favoris qui se coche et se décoche (présent dans l'application mais non fonctionnel)
+
+Vous pouvez également voir l'avancement de cette partie dans mon rapport d'avancement du 19/04/2020 dans le dossier https://github.com/mayisu7798/ChuckNorrisJokesApp/tree/master/RAPPORTS_D_AVANCEMENT
